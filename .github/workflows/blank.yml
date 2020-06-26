@@ -22,12 +22,11 @@ jobs:
           columns: Column 1, Column 2, etc
           "Column 1": 1
           "Column 2": 2
-          etc: 3
-          
-    - run: git config --local user.email "action@github.com"
-    - run: git config --local user.name "GitHub Action"
-    - run: git add data
-    - run: git commit -m "data/octokit.csv updated"
-    - run: "git push https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD"
-    env:
-      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          etc: 3     
+      - run: git config --local user.email "action@github.com"
+      - run: git config --local user.name "GitHub Action"
+      - run: git add data
+      - run: git commit -m "data/octokit.csv updated"
+      - run: "git push https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git HEAD"
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
