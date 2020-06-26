@@ -1,0 +1,3 @@
+- name: Write to CSV file
+  uses: gr2m/write-csv-file-action@v1.0.0
+
