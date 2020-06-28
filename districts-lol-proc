@@ -1,7 +1,0 @@
-#!/bin/sh
-while true
-do
-  ./update.sh
-  sleep 120
-done
-
