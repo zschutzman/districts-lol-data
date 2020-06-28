@@ -1,0 +1,10 @@
+#!/bin/bash
+# A simple script
+
+git pull
+
+git rm _data/hot-or-not/raw/dat*
+
+git commit -m "bashtest"
+
+git push
