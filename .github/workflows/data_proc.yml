@@ -1,16 +1,25 @@
-name: Run CI
-on: [push]
+name: Incorporating new data
+on:
+  schedule:
+    - cron: "*/60 * * * *"
 jobs:
   Run-All-Tests:
     name: "incorporate data"
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
+      - name: check for updates
+        uses: andstor/file-existence-action@v1
+        with:
+          files: "_data/hot-or-not/raw/dat_*"
+          allow_failure: true
       - name: process data
         run: pip install pandas && python .github/workflows/test_flow.py
+      - name: cleanup
+        run: rm -rf _data/hot-or-not/raw/dat_*
       - uses: stefanzweifel/git-auto-commit-action@v4
         with:
-          commit_message: "[Bot] Update all the things!"
+          commit_message: "incorporating new data"
           commit_user_name: zach-web-bot
           commit_user_email: zschutzman@gmail.com
           commit_author: zach-web-bot <zschutzman@gmail.com>
