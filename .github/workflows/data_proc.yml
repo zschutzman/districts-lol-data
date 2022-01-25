@@ -14,7 +14,7 @@ jobs:
           files: "_data/hot-or-not/raw/dat_*"
           allow_failure: true
       - name: process data
-        run: pip install pandas && python .github/workflows/test_flow.py
+        run: pip install pandas && python .github/workflows/update_data.py
       - name: cleanup
         run: rm -rf _data/hot-or-not/raw/dat_*
       - uses: stefanzweifel/git-auto-commit-action@v4
