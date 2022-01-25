@@ -15,7 +15,7 @@ for f in os.listdir("_data/hot-or-not/raw"):
             df.loc[df.district == ll[0],ll[1]] += 1
 
 
-df.to_csv("_data/hot-or-not/aggregate2.csv",index=False)
+df.to_csv("_data/hot-or-not/aggregate.csv",index=False)
 
 js_str = "var vote_data = {"
 
@@ -25,5 +25,5 @@ for i,r in df.iterrows():
 
 js_str = js_str[:-2] + '}'
 
-with open("_data/hot-or-not/testjs.txt", 'w') as jsout:
+with open("_data/hot-or-not/vote-data.js", 'w') as jsout:
     jsout.write(js_str)
