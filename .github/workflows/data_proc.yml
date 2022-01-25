@@ -12,7 +12,7 @@ jobs:
       - name: check for updates
         uses: andstor/file-existence-action@v1
         with:
-          files: "_data/hot-or-not/raw/dat_*"
+          files: "/_data/hot-or-not/raw/dat_*"
           allow_failure: true
       - name: process data
         run: pip install pandas && python .github/workflows/update_data.py
