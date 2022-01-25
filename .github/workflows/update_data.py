@@ -1,6 +1,8 @@
 import pandas as pd
 import os
 
+if len([f for f in os.listdir("_data/hot-or-not/raw") if f[:4] == "dat_"]) == 0: exit()
+
 
 df = pd.read_csv("_data/hot-or-not/aggregate.csv")
 df = df.rename(columns=lambda x: x.strip())
