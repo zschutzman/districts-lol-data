@@ -1,5 +1,6 @@
 name: Incorporating new data
 on:
+  workflow_dispatch:
   schedule:
     - cron: "*/60 * * * *"
 jobs:
